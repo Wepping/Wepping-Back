@@ -17,9 +17,15 @@ assignees: ''
 
 - [] to-do 1
 - [] to-do 2
+<<<<<<< HEAD
   </br>
+=======
+</br>
 
 
 ## ✅ Context (선택사항)
 
+<<<<<<< HEAD
+작업사항에 대한 다른 Context 혹은 Screenshot을 첨부해주세요
+=======
 작업사항에 대한 다른 Context 혹은 Screenshot을 첨부해주세요
