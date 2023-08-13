@@ -27,7 +27,9 @@ class User(
             this.password,
             this.userName,
             this.getNicName(),
-            this.email
+            this.email,
+            this.createdAt,
+            this.updatedAt
         )
     }
 

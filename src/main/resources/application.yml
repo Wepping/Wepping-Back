@@ -10,3 +10,4 @@ spring:
   config:
     activate:
       on-profile: local
+debug: true

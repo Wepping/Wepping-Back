@@ -18,3 +18,8 @@ open class BaseEntity {
     @Column(nullable = false)
     lateinit var updatedAt: ZonedDateTime
 }
+
+open class BaseDto(
+    val createdAt: ZonedDateTime,
+    val updatedAt: ZonedDateTime
+)

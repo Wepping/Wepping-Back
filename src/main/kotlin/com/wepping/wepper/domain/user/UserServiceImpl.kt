@@ -2,14 +2,12 @@ package com.wepping.wepper.domain.user
 
 import com.wepping.wepper.`interface`.user.dto.UserDto
 import com.wepping.wepper.`interface`.user.service.UserService
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 
 
-@Component
+@Service
 class UserServiceImpl(
-
 ) : UserService(
-
 ) {
     override fun getAllUsers(): List<UserDto> {
         return this.userPersistence.getAll().map {
