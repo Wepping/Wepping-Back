@@ -4,6 +4,7 @@ import com.wepping.wepper.`interface`.user.dto.UserDto
 import jakarta.persistence.*
 
 @Entity
+@Table(name = "wepping_user")
 class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
