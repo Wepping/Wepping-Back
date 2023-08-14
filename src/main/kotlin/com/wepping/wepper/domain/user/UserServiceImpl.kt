@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserServiceImpl(
-    private val userPersistence: UserPersistence
+    private val userPersistence: UserPersistence,
 ) : UserService(
 ) {
 
     override fun getAllUsers(): List<UserDto> {
-        return this.userPersistence.getAll().map {
-            user -> user.toDto()
+        return this.userPersistence.getAll().map { user ->
+            user.toDto()
         }
     }
 

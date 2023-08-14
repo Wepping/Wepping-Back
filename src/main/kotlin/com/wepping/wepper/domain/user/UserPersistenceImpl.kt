@@ -12,8 +12,8 @@ interface UserRepository : JpaRepository<User, Long>
 
 @Component
 class UserPersistenceImpl(
-    private val userRepository: UserRepository
-) :  UserPersistence() {
+    private val userRepository: UserRepository,
+) : UserPersistence() {
 
     override fun getAll(): List<User> {
         return this.userRepository.findAll().toList()

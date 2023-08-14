@@ -1,4 +1,5 @@
 package com.wepping.wepper.domain.user
+
 import com.wepping.wepper.BaseEntity
 import com.wepping.wepper.`interface`.user.dto.UserDto
 import jakarta.persistence.*
@@ -18,10 +19,10 @@ class User(
 
     val nickName: String? = null,
 
-    val email: String? = null
+    val email: String? = null,
 ) : BaseEntity() {
 
-    fun toDto() : UserDto {
+    fun toDto(): UserDto {
         return UserDto(
             this.id!!,
             this.password,
@@ -33,7 +34,7 @@ class User(
         )
     }
 
-    private fun getNicName() : String{
+    private fun getNicName(): String {
         return this.nickName ?: this.userName
     }
 }

@@ -21,5 +21,5 @@ open class BaseEntity {
 
 open class BaseDto(
     val createdAt: ZonedDateTime,
-    val updatedAt: ZonedDateTime
+    val updatedAt: ZonedDateTime,
 )

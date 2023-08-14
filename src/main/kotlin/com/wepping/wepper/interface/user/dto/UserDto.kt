@@ -16,7 +16,7 @@ class UserDto(
 
     val createAt: ZonedDateTime,
 
-    val updateAt: ZonedDateTime
+    val updateAt: ZonedDateTime,
 ) : BaseDto(
     createAt,
     updateAt
