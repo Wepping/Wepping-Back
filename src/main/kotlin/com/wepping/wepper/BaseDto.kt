@@ -7,7 +7,7 @@ open class BaseDto(
     val updatedAt: ZonedDateTime,
 )
 
-open class BaseListDto<Entity : BaseEntity<EntityDto>, EntityDto> constructor (
+open class BaseListDto<Entity : BaseEntity<EntityDto>, EntityDto : BaseDto> constructor (
     private val list: List<Entity>,
 ) {
     var data: List<EntityDto> = this.list.map { entity -> entity.toDto() }

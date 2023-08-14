@@ -8,7 +8,7 @@ import java.time.ZonedDateTime
 
 
 @MappedSuperclass
-open abstract class BaseEntity<EntityDto> {
+abstract class BaseEntity<EntityDto : BaseDto> {
 
     @field:CreationTimestamp
     @Column(nullable = false)
