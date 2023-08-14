@@ -1,6 +1,7 @@
 package com.wepping.wepper.api.user
 
 import com.wepping.wepper.`interface`.user.dto.UserDto
+import com.wepping.wepper.`interface`.user.dto.UserListDto
 import com.wepping.wepper.`interface`.user.service.UserService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
@@ -11,7 +12,7 @@ class UserController(
 ) {
 
     @GetMapping("/v1/users")
-    fun getUsers(): List<UserDto> {
+    fun getUsers(): UserListDto {
         return this.userService.getAllUsers()
     }
 

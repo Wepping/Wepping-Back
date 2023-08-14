@@ -1,10 +1,12 @@
 package com.wepping.wepper.`interface`.user.dto
 
 import com.wepping.wepper.BaseDto
+import com.wepping.wepper.BaseListDto
+import com.wepping.wepper.domain.user.User
 import java.time.ZonedDateTime
 
 class UserDto(
-    val id: Long,
+    val id: String,
 
     val password: String,
 
@@ -21,3 +23,5 @@ class UserDto(
     createAt,
     updateAt
 )
+
+typealias UserListDto = BaseListDto<User, UserDto>

@@ -5,36 +5,36 @@ import com.wepping.wepper.`interface`.user.dto.UserDto
 import jakarta.persistence.*
 
 @Entity
-@Table(name = "wepping_user")
+@Table(name = "USER_MAS_TB")
 class User(
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    @GeneratedValue(strategy = GenerationType.UUID)
+    val id: String? = null,
 
     @Column(nullable = false)
-    val password: String,
+    var password: String,
 
     @Column(nullable = false)
-    val userName: String,
+    var userName: String,
 
-    val nickName: String? = null,
+    var nickName: String? = null,
 
-    val email: String? = null,
-) : BaseEntity() {
+    var email: String? = null,
+) : BaseEntity<UserDto>() {
 
-    fun toDto(): UserDto {
+    override fun toDto(): UserDto {
         return UserDto(
             this.id!!,
             this.password,
             this.userName,
-            this.getNickName(),
+            this.getActualNickName(),
             this.email,
             this.createdAt,
             this.updatedAt
         )
     }
 
-    private fun getNickName(): String {
+    fun getActualNickName(): String {
         return this.nickName ?: this.userName
     }
 }

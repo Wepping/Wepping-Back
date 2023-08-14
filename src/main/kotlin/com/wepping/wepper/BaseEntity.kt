@@ -8,7 +8,7 @@ import java.time.ZonedDateTime
 
 
 @MappedSuperclass
-open class BaseEntity {
+open abstract class BaseEntity<EntityDto> {
 
     @field:CreationTimestamp
     @Column(nullable = false)
@@ -17,9 +17,6 @@ open class BaseEntity {
     @field:UpdateTimestamp
     @Column(nullable = false)
     lateinit var updatedAt: ZonedDateTime
-}
 
-open class BaseDto(
-    val createdAt: ZonedDateTime,
-    val updatedAt: ZonedDateTime,
-)
+    abstract fun toDto() : EntityDto
+}
