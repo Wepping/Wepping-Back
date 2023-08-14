@@ -22,7 +22,12 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2") // swagger
+    implementation("org.projectlombok:lombok:1.18.12") // lombok
+    implementation("io.github.microutils:kotlin-logging-jvm:2.0.10") // logger
+    implementation("org.slf4j:slf4j-api:2.0.3") // logger
+    implementation("org.springframework.boot:spring-boot-starter-validation") // validation
+    testImplementation("org.springframework.boot:spring-boot-starter-test") // web
 }
 
 tasks.withType<KotlinCompile> {
