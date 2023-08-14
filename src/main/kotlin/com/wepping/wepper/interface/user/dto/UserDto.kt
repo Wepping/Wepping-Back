@@ -2,7 +2,6 @@ package com.wepping.wepper.`interface`.user.dto
 
 import com.wepping.wepper.BaseDto
 import com.wepping.wepper.BaseListDto
-import com.wepping.wepper.domain.user.User
 import java.time.ZonedDateTime
 
 class UserDto(
@@ -24,4 +23,4 @@ class UserDto(
     updateAt
 )
 
-typealias UserListDto = BaseListDto<User, UserDto>
+typealias UserListDto = BaseListDto<UserDto>
