@@ -7,4 +7,4 @@ open abstract class UserService(
     abstract fun getAllUsers(): List<UserDto>
 
     abstract fun getUserById(id: Long): UserDto
-}
+}ww

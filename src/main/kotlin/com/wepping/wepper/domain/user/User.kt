@@ -27,14 +27,14 @@ class User(
             this.id!!,
             this.password,
             this.userName,
-            this.getNicName(),
+            this.getNickName(),
             this.email,
             this.createdAt,
             this.updatedAt
         )
     }
 
-    private fun getNicName(): String {
+    private fun getNickName(): String {
         return this.nickName ?: this.userName
     }
 }
