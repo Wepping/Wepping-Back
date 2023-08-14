@@ -13,7 +13,7 @@ class UserServiceImpl(
 ) {
 
     override fun getAllUsers(): UserListDto {
-        return UserListDto(this.userPersistence.getAll())
+        return UserListDto.create(this.userPersistence.getAll())
     }
 
     override fun getUserById(id: Long): UserDto {
