@@ -1,6 +1,6 @@
 package com.wepping.wepper.common.exception
 
-enum class HttpErrorCode(code: Int) {
+enum class HttpErrorCode(val code: Int) {
     BAD_REQUEST(400),
     UNAUTHORIZED(401),
     FORBIDDEN(403),
