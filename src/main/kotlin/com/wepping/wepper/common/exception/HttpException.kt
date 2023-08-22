@@ -18,3 +18,4 @@ open class HttpException(
 }
 
 class NotFoundException(message: String) : HttpException(ErrorCode.NOT_FOUND, message)
+class BadRequestException(message: String) : HttpException(ErrorCode.BAD_REQUEST, message)
