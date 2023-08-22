@@ -1,6 +1,7 @@
 package com.wepping.wepper.domain.user
 
 import com.wepping.wepper.`interface`.user.persistence.UserPersistence
+import com.wepping.wepper.common.exception.NotFoundException
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
@@ -20,6 +21,6 @@ class UserPersistenceImpl(
     }
 
     override fun getById(id: Long): User {
-        return this.userRepository.findByIdOrNull(id) ?: throw error("")
+        return this.userRepository.findByIdOrNull(id) ?: throw NotFoundException("user id $id not exist.")
     }
 }
