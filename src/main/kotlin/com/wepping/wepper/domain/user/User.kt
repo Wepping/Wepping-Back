@@ -23,7 +23,7 @@ class User(
     var email: String? = null,
 
     @OneToMany(cascade = [CascadeType.ALL], mappedBy = "user")
-    var plans: List<Plan> = emptyList()
+    var plans: List<Plan> = emptyList(),
 ) : BaseEntity<UserDto>() {
 
     @Id
