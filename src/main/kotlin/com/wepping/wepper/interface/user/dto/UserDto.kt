@@ -24,6 +24,7 @@ class UserDto(
 )
 
 class CreateUserDto(
+    val userId: String,
     val password: String,
     val userName: String,
     val nickName: String?,

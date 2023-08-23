@@ -27,6 +27,6 @@ class UserController(
 
     @GetMapping("/v1/users/{id}")
     fun getUserById(@PathVariable id: String): UserDto {
-        return this.userService.getUserById(id)
+        return this.userService.getUserByUserId(id)
     }
 }

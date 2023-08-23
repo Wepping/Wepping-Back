@@ -19,12 +19,13 @@ class UserServiceImpl(
         return UserListDto.create(this.userPersistence.getAll())
     }
 
-    override fun getUserById(id: String): UserDto {
-        return this.userPersistence.getById(id).toDto()
+    override fun getUserByUserId(userid: String): UserDto {
+        return this.userPersistence.getByUserId(userid).toDto()
     }
 
     @Transactional
     override fun createUser(dto: CreateUserDto): UserDto {
+
         return this.userPersistence.create(dto).toDto()
     }
 }

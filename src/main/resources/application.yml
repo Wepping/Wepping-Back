@@ -6,8 +6,11 @@ spring:
     url: jdbc:h2:tcp://localhost/~/wepping
   jpa:
     hibernate:
-      ddl-auto: update
-    show-sql: true
+      ddl-auto: create
+    properties:
+      show_sql: true
+      format_sql: true
+
 
   config:
     activate:

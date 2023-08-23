@@ -6,7 +6,9 @@ import com.wepping.wepper.domain.user.User
 abstract class UserPersistence {
     abstract fun getAll(): List<User>
 
-    abstract fun getById(id: String): User
+    abstract fun getById(id: Long): User
+
+    abstract fun getByUserId(id: String): User
 
     abstract fun create(dto: CreateUserDto): User
 }

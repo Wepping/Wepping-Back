@@ -8,7 +8,7 @@ open abstract class UserService(
 ) {
     abstract fun getAllUsers(): UserListDto
 
-    abstract fun getUserById(id: String): UserDto
+    abstract fun getUserByUserId(userid: String): UserDto
 
     abstract fun createUser(dto: CreateUserDto) : UserDto
 }
