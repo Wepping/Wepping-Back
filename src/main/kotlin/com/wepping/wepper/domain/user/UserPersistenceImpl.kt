@@ -25,7 +25,7 @@ class UserPersistenceImpl(
         return this.userRepository.findByIdOrNull(id) ?: throw NotFoundException("user id $id not exist.")
     }
 
-    override fun createUser(dto: CreateUserDto): User {
+    override fun create(dto: CreateUserDto): User {
         val user = User(
             null,
             dto.password,

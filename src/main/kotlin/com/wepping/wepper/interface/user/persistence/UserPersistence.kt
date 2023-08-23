@@ -8,5 +8,5 @@ abstract class UserPersistence {
 
     abstract fun getById(id: String): User
 
-    abstract fun createUser(dto: CreateUserDto): User
+    abstract fun create(dto: CreateUserDto): User
 }

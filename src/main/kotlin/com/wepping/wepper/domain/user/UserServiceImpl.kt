@@ -24,7 +24,7 @@ class UserServiceImpl(
     }
 
     @Transactional
-    override fun createUser(dto: CreateUserDto) : UserDto {
-        return this.userPersistence.createUser(dto).toDto()
+    override fun createUser(dto: CreateUserDto): UserDto {
+        return this.userPersistence.create(dto).toDto()
     }
 }
