@@ -2,6 +2,7 @@ package com.wepping.wepper.domain.user
 
 import com.wepping.wepper.`interface`.user.dto.UserDto
 import com.wepping.wepper.common.entity.BaseEntity
+import com.wepping.wepper.domain.plan.Plan
 import jakarta.persistence.*
 
 @Entity
@@ -20,6 +21,9 @@ class User(
     var nickName: String? = null,
 
     var email: String? = null,
+
+    @OneToMany(cascade = [CascadeType.ALL], mappedBy = "user")
+    var plans: List<Plan> = emptyList()
 ) : BaseEntity<UserDto>() {
 
     @Id
