@@ -15,12 +15,19 @@ class UserDto(
 
     val email: String?,
 
-    val createAt: ZonedDateTime,
+    createAt: ZonedDateTime,
 
-    val updateAt: ZonedDateTime,
+    updateAt: ZonedDateTime,
 ) : BaseDto(
     createAt,
     updateAt
+)
+
+class CreateUserDto(
+    val password: String,
+    val userName: String,
+    val nickName: String?,
+    val email: String?
 )
 
 typealias UserListDto = BaseListDto<UserDto>

@@ -1,10 +1,13 @@
 package com.wepping.wepper.api.user
 
+import com.wepping.wepper.`interface`.user.dto.CreateUserDto
 import com.wepping.wepper.`interface`.user.dto.UserDto
 import com.wepping.wepper.`interface`.user.dto.UserListDto
 import com.wepping.wepper.`interface`.user.service.UserService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -15,6 +18,11 @@ class UserController(
     @GetMapping("/v1/users")
     fun getUsers(): UserListDto {
         return this.userService.getAllUsers()
+    }
+
+    @PostMapping("/v1/users")
+    fun createUser(@RequestBody dto: CreateUserDto) : UserDto {
+        return this.userService.createUser(dto)
     }
 
     @GetMapping("/v1/users/{id}")

@@ -1,5 +1,6 @@
 package com.wepping.wepper.domain.user
 
+import com.wepping.wepper.`interface`.user.dto.CreateUserDto
 import com.wepping.wepper.`interface`.user.dto.UserDto
 import com.wepping.wepper.`interface`.user.dto.UserListDto
 import com.wepping.wepper.`interface`.user.persistence.UserPersistence
@@ -20,5 +21,10 @@ class UserServiceImpl(
 
     override fun getUserById(id: String): UserDto {
         return this.userPersistence.getById(id).toDto()
+    }
+
+    @Transactional
+    override fun createUser(dto: CreateUserDto) : UserDto {
+        return this.userPersistence.createUser(dto).toDto()
     }
 }
