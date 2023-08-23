@@ -7,10 +7,6 @@ import jakarta.persistence.*
 @Entity
 @Table(name = "USER_MAS_TB")
 class User(
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    val id: String? = null,
-
     @Column(nullable = false)
     var password: String,
 
@@ -21,6 +17,10 @@ class User(
 
     var email: String? = null,
 ) : BaseEntity<UserDto>() {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    lateinit var id: String
 
     override fun toDto(): UserDto {
         return UserDto(

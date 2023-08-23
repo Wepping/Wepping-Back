@@ -27,7 +27,6 @@ class UserPersistenceImpl(
 
     override fun create(dto: CreateUserDto): User {
         val user = User(
-            null,
             dto.password,
             dto.userName,
             dto.nickName,
