@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component
 import org.springframework.stereotype.Repository
 
 @Repository
-interface UserRepository : JpaRepository<User, Long>
+interface UserRepository : JpaRepository<User, String>
 
 
 @Component
@@ -20,7 +20,7 @@ class UserPersistenceImpl(
         return this.userRepository.findAll().toList()
     }
 
-    override fun getById(id: Long): User {
+    override fun getById(id: String): User {
         return this.userRepository.findByIdOrNull(id) ?: throw NotFoundException("user id $id not exist.")
     }
 }

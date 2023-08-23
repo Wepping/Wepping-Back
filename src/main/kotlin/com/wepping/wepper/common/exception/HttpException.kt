@@ -1,8 +1,13 @@
 package com.wepping.wepper.common.exception
 
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.ExceptionHandler
+import org.springframework.web.bind.annotation.RestControllerAdvice
+
 open class HttpException(
-    errorCode: ErrorCode,
-    message: String
+    override val errorCode: ErrorCode,
+    message: String,
 ) : BaseException(errorCode, message) {
 
     enum class ErrorCode(val code: Int) {
@@ -14,6 +19,16 @@ open class HttpException(
         GONE(410),
         INTERNAL_SERVER_ERROR(500),
         SERVICE_UNAVAILABLE(503)
+    }
+}
+
+@RestControllerAdvice
+class HttpExceptionAdvice {
+
+    @ExceptionHandler
+    fun handleHttpException(e: HttpException): ResponseEntity<ExceptionDto> {
+        val exception = ExceptionDto(e.errorCode.code, e.message, null)
+        return ResponseEntity(exception, HttpStatus.valueOf(e.errorCode.code))
     }
 }
 
