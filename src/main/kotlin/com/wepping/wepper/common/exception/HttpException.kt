@@ -27,8 +27,8 @@ class HttpExceptionAdvice {
 
     @ExceptionHandler
     fun handleHttpException(e: HttpException): ResponseEntity<ExceptionDto> {
-        val exception = ExceptionDto(e.errorCode.code, e.message, null)
-        return ResponseEntity(exception, HttpStatus.valueOf(e.errorCode.code))
+        val dto = ExceptionDto(e.errorCode.code, e.message, null)
+        return ResponseEntity(dto, HttpStatus.valueOf(e.errorCode.code))
     }
 }
 
