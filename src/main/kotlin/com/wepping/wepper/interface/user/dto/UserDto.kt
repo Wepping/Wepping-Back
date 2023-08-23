@@ -5,7 +5,9 @@ import com.wepping.wepper.common.entity.BaseListDto
 import java.time.ZonedDateTime
 
 class UserDto(
-    val id: String,
+    val id: Long,
+
+    val userId: String,
 
     val password: String,
 
@@ -28,7 +30,7 @@ class CreateUserDto(
     val password: String,
     val userName: String,
     val nickName: String?,
-    val email: String?
+    val email: String?,
 )
 
 typealias UserListDto = BaseListDto<UserDto>

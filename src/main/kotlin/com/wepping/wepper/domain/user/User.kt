@@ -1,7 +1,7 @@
 package com.wepping.wepper.domain.user
 
-import com.wepping.wepper.common.entity.BaseEntity
 import com.wepping.wepper.`interface`.user.dto.UserDto
+import com.wepping.wepper.common.entity.BaseEntity
 import jakarta.persistence.*
 
 @Entity
@@ -28,6 +28,7 @@ class User(
 
     override fun toDto(): UserDto {
         return UserDto(
+            this.id!!,
             this.userId,
             this.password,
             this.userName,
