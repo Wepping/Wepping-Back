@@ -2,6 +2,7 @@ package com.wepping.wepper.domain.user
 
 import com.wepping.wepper.`interface`.user.dto.UserDto
 import com.wepping.wepper.common.entity.BaseEntity
+import com.wepping.wepper.common.exception.BadRequestException
 import com.wepping.wepper.domain.plan.Plan
 import jakarta.persistence.*
 
@@ -22,13 +23,14 @@ class User(
 
     var email: String? = null,
 
-    @OneToMany(cascade = [CascadeType.ALL], mappedBy = "user")
-    var plans: List<Plan> = emptyList(),
-) : BaseEntity<UserDto>() {
+    ) : BaseEntity<UserDto>() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
+
+    @OneToMany(cascade = [CascadeType.ALL], mappedBy = "user")
+    var plans: Set<Plan> = emptySet()
 
     override fun toDto(): UserDto {
         return UserDto(
@@ -45,5 +47,21 @@ class User(
 
     fun getActualNickName(): String {
         return this.nickName ?: this.userName
+    }
+
+    fun addPlan(plan: Plan) {
+        if (!this.plans.contains(plan)) {
+            throw BadRequestException("user $userId already has plan id ${plan.id}")
+        }
+        plan.user = this
+        this.plans += plan
+    }
+
+    fun removePlan(plan: Plan) {
+        if (!this.plans.contains(plan)) {
+            throw BadRequestException("user $userId has no plan id ${plan.id}")
+        }
+        plan.user = null
+        this.plans -= plan
     }
 }
