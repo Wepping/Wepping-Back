@@ -50,7 +50,7 @@ class User(
     }
 
     fun addPlan(plan: Plan) {
-        if (!this.plans.contains(plan)) {
+        if (plan !in this.plans) {
             throw BadRequestException("user $userId already has plan id ${plan.id}")
         }
         plan.user = this
@@ -58,7 +58,7 @@ class User(
     }
 
     fun removePlan(plan: Plan) {
-        if (!this.plans.contains(plan)) {
+        if (plan !in this.plans) {
             throw BadRequestException("user $userId has no plan id ${plan.id}")
         }
         plan.user = null
