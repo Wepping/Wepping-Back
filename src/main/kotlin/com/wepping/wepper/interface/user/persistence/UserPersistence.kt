@@ -11,4 +11,6 @@ abstract class UserPersistence {
     abstract fun getByUserId(id: String): User
 
     abstract fun create(dto: CreateUserDto): User
+
+    abstract fun remove(user: User)
 }

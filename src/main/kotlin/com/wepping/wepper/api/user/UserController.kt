@@ -1,14 +1,11 @@
 package com.wepping.wepper.api.user
 
 import com.wepping.wepper.`interface`.user.dto.CreateUserDto
+import com.wepping.wepper.`interface`.user.dto.UpdateUserDto
 import com.wepping.wepper.`interface`.user.dto.UserDto
 import com.wepping.wepper.`interface`.user.dto.UserListDto
 import com.wepping.wepper.`interface`.user.service.UserService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 class UserController(
@@ -21,12 +18,22 @@ class UserController(
     }
 
     @PostMapping("/v1/users")
-    fun createUser(@RequestBody dto: CreateUserDto) : UserDto {
+    fun createUser(@RequestBody dto: CreateUserDto): UserDto {
         return this.userService.createUser(dto)
     }
 
     @GetMapping("/v1/users/{id}")
-    fun getUserById(@PathVariable id: String): UserDto {
-        return this.userService.getUserByUserId(id)
+    fun getUserById(@PathVariable id: Long): UserDto {
+        return this.userService.getUserById(id)
+    }
+
+    @PatchMapping("/v1/users/{id}")
+    fun updateUserData(@PathVariable id: Long, @RequestBody dto: UpdateUserDto): UserDto {
+        return this.userService.updateUser(id, dto)
+    }
+
+    @DeleteMapping("/v1/users/{id}")
+    fun deleteUser(@PathVariable id: Long) {
+        this.userService.removeUser(id)
     }
 }

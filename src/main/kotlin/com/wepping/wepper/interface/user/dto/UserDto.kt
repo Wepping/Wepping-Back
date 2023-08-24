@@ -25,6 +25,8 @@ class UserDto(
     updateAt
 )
 
+typealias UserListDto = BaseListDto<UserDto>
+
 class CreateUserDto(
     val userId: String,
     val password: String,
@@ -33,4 +35,9 @@ class CreateUserDto(
     val email: String?,
 )
 
-typealias UserListDto = BaseListDto<UserDto>
+class UpdateUserDto(
+    val password: String?,
+    val userName: String?,
+    val nickName: String?,
+    val email: String?
+)

@@ -48,4 +48,8 @@ class UserPersistenceImpl(
         return this.userRepository.save(user)
     }
 
+    override fun remove(user: User) {
+        this.userRepository.delete(user)
+    }
+
 }
