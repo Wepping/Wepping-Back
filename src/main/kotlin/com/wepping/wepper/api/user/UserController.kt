@@ -8,31 +8,32 @@ import com.wepping.wepper.`interface`.user.service.UserService
 import org.springframework.web.bind.annotation.*
 
 @RestController
+@RequestMapping("/v1/users")
 class UserController(
     private val userService: UserService,
 ) {
 
-    @GetMapping("/v1/users")
+    @GetMapping()
     fun getUsers(): UserListDto {
         return this.userService.getAllUsers()
     }
 
-    @PostMapping("/v1/users")
+    @PostMapping()
     fun createUser(@RequestBody dto: CreateUserDto): UserDto {
         return this.userService.createUser(dto)
     }
 
-    @GetMapping("/v1/users/{id}")
+    @GetMapping("/{id}")
     fun getUserById(@PathVariable id: Long): UserDto {
         return this.userService.getUserById(id)
     }
 
-    @PatchMapping("/v1/users/{id}")
+    @PatchMapping("/{id}")
     fun updateUserData(@PathVariable id: Long, @RequestBody dto: UpdateUserDto): UserDto {
         return this.userService.updateUser(id, dto)
     }
 
-    @DeleteMapping("/v1/users/{id}")
+    @DeleteMapping("/{id}")
     fun deleteUser(@PathVariable id: Long) {
         this.userService.removeUser(id)
     }
