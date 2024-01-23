@@ -17,5 +17,5 @@ open abstract class UserService(
 
     abstract fun updateUser(id: Long, dto: UpdateUserDto) : UserDto
 
-    abstract fun removeUser(id: Long)
+    abstract fun deleteUser(id: Long)
 }

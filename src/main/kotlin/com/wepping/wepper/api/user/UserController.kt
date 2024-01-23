@@ -35,6 +35,6 @@ class UserController(
 
     @DeleteMapping("/{id}")
     fun deleteUser(@PathVariable id: Long) {
-        this.userService.removeUser(id)
+        this.userService.deleteUser(id)
     }
 }

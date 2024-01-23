@@ -44,7 +44,7 @@ class UserServiceImpl(
     }
 
     @Transactional
-    override fun removeUser(id: Long) {
+    override fun deleteUser(id: Long) {
         var user = this.userPersistence.getById(id)
         this.userPersistence.remove(user)
     }

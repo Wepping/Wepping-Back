@@ -4,7 +4,17 @@ import java.time.ZonedDateTime
 
 open class BaseDto(
     val createdAt: ZonedDateTime,
-    val updatedAt: ZonedDateTime,
+    val updatedAt: ZonedDateTime
+)
+
+open class TimedBaseDto(
+    createdAt: ZonedDateTime,
+    updatedAt: ZonedDateTime,
+    val startedAt : ZonedDateTime,
+    val endedAt : ZonedDateTime
+) : BaseDto(
+    createdAt,
+    updatedAt
 )
 
 open class BaseListDto<EntityDto : BaseDto> private constructor(
